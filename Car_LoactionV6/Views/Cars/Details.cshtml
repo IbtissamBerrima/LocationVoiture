@@ -1,0 +1,78 @@
+﻿@model Car_LoactionV6.Models.Cars
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cars</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.NomCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.NomCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modele.NomMarque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modele.NomMarque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Matriculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matriculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCirculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCirculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeCarburant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeCarburant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/photos/"+Model.Image)" />"
+        </dd>
+        <dd>
+            @Html.ActionLink("Reserver", "Create", "Rentals")
+
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCar }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Car_LoactionV6.Models.Rental>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cars.Matriculation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cars.Matriculation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDebut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFin)
+        </td> 
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+           
+            <a href="@Url.Action("AccepterConfirm","Rentals",new { id = item.IdRental },null)">Accepter</a>|
+            <a href="@Url.Action("RefuserConfirm","Rentals",new { id = item.IdRental },null)">Refuser</a>
+            |
+            
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdRental })
+        </td>
+    </tr>
+}
+
+</table>

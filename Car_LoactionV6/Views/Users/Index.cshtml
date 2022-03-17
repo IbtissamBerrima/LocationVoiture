@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Car_LoactionV6.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create","Users")
+</p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdresseMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotDePasse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PermisConduire)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdresseMail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotDePasse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateNaissance)
+        </td>
+        <td>
+            <img  src="@Url.Content("~/photos1/" + item.Cin)">
+        </td>
+        <td>
+            <img  src="@Url.Content("~/photos2/" + item.PermisConduire)">
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UID })
+        </td>
+    </tr>
+}
+
+</table>
